@@ -1,0 +1,62 @@
+-- Tạo cơ sở dữ liệu Cinema
+CREATE DATABASE Cinema;
+GO
+USE Cinema;
+GO
+
+-- Tạo bảng Countries
+CREATE TABLE Countries (
+    CountryCode CHAR(2) PRIMARY KEY,
+    CountryName NVARCHAR(100) NOT NULL
+);
+
+-- Tạo bảng Genres
+CREATE TABLE Genres (
+    GenreID VARCHAR(32) PRIMARY KEY,
+    GenreName NVARCHAR(100) NOT NULL
+);
+
+-- Tạo bảng Rooms
+CREATE TABLE Rooms (
+    RoomID VARCHAR(32) PRIMARY KEY,
+    NumberRows INT NOT NULL,
+    NumberCols INT NOT NULL
+);
+
+-- Tạo bảng Films
+CREATE TABLE Films (
+    FilmID VARCHAR(32) PRIMARY KEY,
+    GenreID VARCHAR(32),
+    Title NVARCHAR(255) NOT NULL,
+    Year INT,
+    CountryCode CHAR(2),
+    CONSTRAINT FK_Films_Genres FOREIGN KEY (GenreID) REFERENCES Genres(GenreID),
+    CONSTRAINT FK_Films_Countries FOREIGN KEY (CountryCode) REFERENCES Countries(CountryCode)
+);
+
+-- Tạo bảng Shows
+CREATE TABLE Shows (
+    ShowID VARCHAR(32) PRIMARY KEY,
+    RoomID VARCHAR(32),
+    FilmID VARCHAR(32),
+    Price DECIMAL(10, 2),
+    Status NVARCHAR(50),
+    CONSTRAINT FK_Shows_Rooms FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
+    CONSTRAINT FK_Shows_Films FOREIGN KEY (FilmID) REFERENCES Films(FilmID)
+);
+
+-- Tạo bảng Bookings
+CREATE TABLE Bookings (
+    BookingID VARCHAR(32) PRIMARY KEY,
+    ShowID VARCHAR(32),
+    SeatNumber NVARCHAR(10),
+    CONSTRAINT FK_Bookings_Shows FOREIGN KEY (ShowID) REFERENCES Shows(ShowID)
+);
+
+CREATE TABLE Users (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    account VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL
+);

@@ -27,8 +27,11 @@ public partial class CinemaContext : DbContext
 
     public virtual DbSet<Show> Shows { get; set; }
 
+    public virtual DbSet<User> Users { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("server =; database = Cinema;uid=hungnm;pwd=Hung532@;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("server =fpt-alumnidbserver.database.windows.net; database = Cinema;uid=hungnm;pwd=Hung532@;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -136,6 +139,34 @@ public partial class CinemaContext : DbContext
             entity.HasOne(d => d.Room).WithMany(p => p.Shows)
                 .HasForeignKey(d => d.RoomId)
                 .HasConstraintName("FK_Shows_Rooms");
+        });
+
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Users__3213E83F3B2CBE41");
+
+            entity.HasIndex(e => e.Account, "UQ__Users__EA162E112C6F2521").IsUnique();
+
+            entity.Property(e => e.Id)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("id");
+            entity.Property(e => e.Account)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("account");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("password");
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("role");
         });
 
         OnModelCreatingPartial(modelBuilder);
