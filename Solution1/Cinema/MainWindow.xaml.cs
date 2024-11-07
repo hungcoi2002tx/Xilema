@@ -73,22 +73,22 @@ namespace Cinema
         private void ManageRoomButton_Click(object sender, RoutedEventArgs e)
         {
             // Mở cửa sổ Quản lý phòng chiếu
-            //var manageRoomWindow = new ManageRoomWindow();
-            //manageRoomWindow.Show();
+            var manageRoomWindow = new RoomManagement();
+            manageRoomWindow.Show();
         }
 
         private void ManageMoviesButton_Click(object sender, RoutedEventArgs e)
         {
             // Mở cửa sổ Quản lý phim
-            //var manageMoviesWindow = new ManageMoviesWindow();
-            //manageMoviesWindow.Show();
+            var manageMoviesWindow = new FilmManagement();
+            manageMoviesWindow.Show();
         }
 
         private void ManageGenreCountryButton_Click(object sender, RoutedEventArgs e)
         {
             // Mở cửa sổ Quản lý thể loại và quốc gia
-            //var manageGenreCountryWindow = new ManageGenreCountryWindow();
-            //manageGenreCountryWindow.Show();
+            var manageGenreCountryWindow = new GenreManagement();
+            manageGenreCountryWindow.Show();
         }
 
         private void ScheduleMoviesButton_Click(object sender, RoutedEventArgs e)

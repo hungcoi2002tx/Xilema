@@ -20,4 +20,7 @@ public partial class Film
     public virtual Genre? Genre { get; set; }
 
     public virtual ICollection<Show> Shows { get; set; } = new List<Show>();
+
+    public string? GenreName => Genre?.GenreName;
+    public string? CountryName => CountryCodeNavigation?.CountryName;
 }
