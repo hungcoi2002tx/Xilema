@@ -45,6 +45,7 @@ namespace Cinema
             return new Room
             {
                 RoomId = txtRoomId.Text,
+                Name = txtName.Text,
                 NumberRows = Int16.Parse(txtNumberRows.Text),
                 NumberCols = Int16.Parse(txtNumberCols.Text),
             };
@@ -85,6 +86,7 @@ namespace Cinema
                         Room oldInfor = _context.Rooms.FirstOrDefault(p => p.RoomId == room.RoomId);
                         if (oldInfor != null)
                         {
+                            oldInfor.Name = room.Name;
                             oldInfor.NumberRows = room.NumberRows;
                             oldInfor.NumberCols = room.NumberCols;
                             _context.Rooms.Update(oldInfor);
