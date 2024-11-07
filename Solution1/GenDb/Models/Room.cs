@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cinema.Models;
+namespace GenDb.Models;
 
 public partial class Room
 {
