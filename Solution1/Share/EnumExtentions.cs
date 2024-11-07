@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Share
 {
-    enum Role
+    public enum RoleEnum
     {
         Admin = 0,
         Staff = 1
