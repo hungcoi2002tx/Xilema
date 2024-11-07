@@ -1,0 +1,53 @@
+﻿<Window x:Class="Cinema.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema"
+        mc:Ignorable="d"
+         Title="Đăng Ký" Height="350" Width="400">
+    <Grid Background="#f0f4f8">
+
+        <!-- Tiêu đề của form đăng ký -->
+        <TextBlock Text="Đăng Ký Tài Khoản" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   FontSize="24" FontWeight="Bold" Margin="0,10,0,0" 
+                   Foreground="#333"/>
+
+        <!-- Form đăng ký nằm trong StackPanel để căn giữa và đảm bảo khoảng cách đều -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="280">
+
+            <!-- Tên người dùng -->
+            <TextBlock Text="Tên người dùng:" FontWeight="Bold" FontSize="14" Foreground="#555" Margin="0,0,0,5"/>
+            <TextBox Name="NameTextBox" Height="30" FontSize="14" 
+                     Background="#FFF" BorderBrush="#ccc" Padding="5"/>
+
+            <!-- Tài khoản -->
+            <TextBlock Text="Tài khoản:" FontWeight="Bold" FontSize="14" Foreground="#555" Margin="0,10,0,5"/>
+            <TextBox Name="AccountTextBox" Height="30" FontSize="14" 
+                     Background="#FFF" BorderBrush="#ccc" Padding="5"/>
+
+            <!-- Mật khẩu -->
+            <TextBlock Text="Mật khẩu:" FontWeight="Bold" FontSize="14" Foreground="#555" Margin="0,10,0,5"/>
+            <PasswordBox Name="PasswordBox" Height="30" FontSize="14" 
+                         Background="#FFF" BorderBrush="#ccc" Padding="5"/>
+
+            <!-- Nút Đăng ký -->
+            <Button Content="Đăng ký" Width="150" Height="40" 
+                    Background="#4CAF50" Foreground="White" FontSize="16" FontWeight="Bold" 
+                    HorizontalAlignment="Center" Margin="0,20,0,0" 
+                    Click="RegisterButton_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Color="Black" BlurRadius="5"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

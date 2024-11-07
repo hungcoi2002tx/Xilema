@@ -20,5 +20,6 @@
 
         <!-- Thông báo lỗi -->
         <TextBlock x:Name="ErrorText" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,30"/>
+        <TextBlock Text="Don't have an account? Register here" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Cursor="Hand" MouseDown="RegisterLink_Click"/>
     </Grid>
 </Window>

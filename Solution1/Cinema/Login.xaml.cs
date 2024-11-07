@@ -1,4 +1,5 @@
 ﻿using Cinema.Models;
+using Share;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,12 @@ namespace Cinema
 
                 if (user != null)
                 {
-                    MessageBox.Show($"Welcome {user.Role}!");
+                    Session.UserId = user.Id;
+                    Session.Role = user.Role;   
+                    MessageBox.Show($"Welcome {user.Name}!");
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();   
                     // Nếu đăng nhập thành công, bạn có thể mở một cửa sổ khác hoặc chuyển hướng.
                 }
                 else
@@ -45,6 +51,13 @@ namespace Cinema
                     ErrorText.Text = "Invalid username or password.";
                 }
             }
+        }
+
+        private void RegisterLink_Click(object sender, MouseButtonEventArgs e)
+        {
+            Register registerWindow = new Register();
+            registerWindow.Show();
+            this.Close(); // Đóng cửa sổ đăng nhập
         }
     }
 }
