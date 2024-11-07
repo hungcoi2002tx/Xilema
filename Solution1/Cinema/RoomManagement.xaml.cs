@@ -23,14 +23,20 @@ namespace Cinema
         public RoomManagement()
         {
             InitializeComponent();
-            LoadData();
         }
 
         public void LoadData()
         {
-            using (var _context = new CinemaContext())
+            try
             {
-                RoomList.ItemsSource = _context.Rooms.ToList();
+                using (var _context = new CinemaContext())
+                {
+                    RoomList.ItemsSource = _context.Rooms.ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -115,6 +121,18 @@ namespace Cinema
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete Room");
+            }
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                LoadData();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

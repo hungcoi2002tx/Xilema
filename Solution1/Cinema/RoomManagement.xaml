@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RoomManagement" Height="450" Width="800">
     <Grid>
-        <Canvas Background="Aqua">
+        <Canvas Background="#f0f4f8">
             <Label Content="RoomId:" Canvas.Left="20"></Label>
             <TextBox x:Name="txtRoomId" Canvas.Left="109" Width="150" Canvas.Top="8" IsEnabled="False"
      Text="{Binding RoomId, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=RoomList}"></TextBox>
@@ -18,9 +18,10 @@
             <!--Margin: Trái-Trên-Phải-Dưới -->
             <TextBox x:Name="txtNumberCols" Canvas.Left="109" Width="150" Canvas.Top="64" 
      Text="{Binding NumberCols, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=RoomList}"></TextBox>
-            <Button x:Name="btnAdd" Canvas.Left="109" Canvas.Top="99" Width="80" Height="20" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnAdd_Click"></Button>
-            <Button x:Name="btnUpdate" Canvas.Left="209" Canvas.Top="99" Width="80" Height="20" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdate_Click"></Button>
-            <Button x:Name="btnDelete" Canvas.Left="309" Canvas.Top="99" Width="80" Height="20" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDelete_Click"></Button>
+            <Button Background="#2196F3" Foreground="White" x:Name="btnLoad" Canvas.Left="9" Canvas.Top="99" Width="80" Height="20" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLoad_Click"></Button>
+            <Button Background="#4CAF50" Foreground="White" x:Name="btnAdd" Canvas.Left="109" Canvas.Top="99" Width="80" Height="20" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnAdd_Click"></Button>
+            <Button Background="#FF9800" Foreground="White" x:Name="btnUpdate" Canvas.Left="209" Canvas.Top="99" Width="80" Height="20" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdate_Click"></Button>
+            <Button Background="#F44336" Foreground="White" x:Name="btnDelete" Canvas.Left="309" Canvas.Top="99" Width="80" Height="20" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDelete_Click"></Button>
             <DataGrid Width="362" Canvas.Top="140" Height="155" DataContext="{Binding Source=Infor}" Name="RoomList"
       AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="38">
                 <DataGrid.Columns>

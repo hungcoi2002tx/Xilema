@@ -7,21 +7,39 @@
         mc:Ignorable="d"
         Title="GenreManagement" Height="450" Width="800">
     <Grid>
-        <Canvas Background="Aqua">
+        <Canvas Background="#f0f4f8" Margin="0,0,-30,0">
             <Label Content="GenreId:" Canvas.Left="20"></Label>
             <TextBox x:Name="txtGenreId" Canvas.Left="109" Width="150" Canvas.Top="8" IsEnabled="False"
 Text="{Binding GenreId, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=GenreList}"></TextBox>
+            <Label Content="CountryCode:" Canvas.Left="420"></Label>
+            <TextBox x:Name="txtCountryCode" Canvas.Left="509" Width="150" Canvas.Top="8"
+Text="{Binding CountryCode, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=CountryList}"></TextBox>
             <Label Content="GenreName:" Canvas.Left="20" Canvas.Top="30"></Label>
             <TextBox x:Name="txtGenreName" Canvas.Left="109" Width="150" Canvas.Top="38" 
 Text="{Binding GenreName, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=GenreList}"></TextBox>
-            <Button x:Name="btnAdd" Canvas.Left="109" Canvas.Top="69" Width="80" Height="20" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnAdd_Click"></Button>
-            <Button x:Name="btnUpdate" Canvas.Left="209" Canvas.Top="69" Width="80" Height="20" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdate_Click"></Button>
-            <Button x:Name="btnDelete" Canvas.Left="309" Canvas.Top="69" Width="80" Height="20" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDelete_Click"></Button>
-            <DataGrid Width="392" Canvas.Top="110" Height="155" DataContext="{Binding Source=Genre}" Name="GenreList"
- AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="38">
+            <Label Content="CountryName:" Canvas.Left="420" Canvas.Top="30"></Label>
+            <TextBox x:Name="txtCountryName" Canvas.Left="509" Width="150" Canvas.Top="38" 
+Text="{Binding CountryName, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=CountryList}"></TextBox>
+            <Button Background="#2196F3" Foreground="White" x:Name="btnLoadGenre" Canvas.Left="9" Canvas.Top="69" Width="80" Height="20" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLoadGenre_Click"></Button>
+            <Button Background="#4CAF50" Foreground="White" x:Name="btnAddGenre" Canvas.Left="109" Canvas.Top="69" Width="80" Height="20" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnAddGenre_Click"></Button>
+            <Button Background="#FF9800" Foreground="White" x:Name="btnUpdateGenre" Canvas.Left="209" Canvas.Top="69" Width="80" Height="20" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdateGenre_Click"></Button>
+            <Button Background="#F44336" Foreground="White" x:Name="btnDeleteGenre" Canvas.Left="309" Canvas.Top="69" Width="80" Height="20" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDeleteGenre_Click"></Button>
+            <Button Background="#2196F3" Foreground="White" x:Name="btnLoadCountry" Canvas.Left="409" Canvas.Top="69" Width="80" Height="20" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnLoadCountry_Click"></Button>
+            <Button Background="#4CAF50" Foreground="White" x:Name="btnAddCountry" Canvas.Left="509" Canvas.Top="69" Width="80" Height="20" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnAddCountry_Click"></Button>
+            <Button Background="#FF9800" Foreground="White" x:Name="btnUpdateCountry" Canvas.Left="609" Canvas.Top="69" Width="80" Height="20" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnUpdateCountry_Click"></Button>
+            <Button Background="#F44336" Foreground="White" x:Name="btnDeleteCountry" Canvas.Left="709" Canvas.Top="69" Width="80" Height="20" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnDeleteCountry_Click"></Button>
+            <DataGrid Width="369" Canvas.Top="112" Height="155" DataContext="{Binding Source=Genre}" Name="GenreList"
+ AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="20">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="GenreId" Width="120" Binding="{Binding Path=GenreId}"/>
                     <DataGridTextColumn Header="GenreName" Width="*" Binding="{Binding Path=GenreName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Width="392" Canvas.Top="112" Height="155" DataContext="{Binding Source=Genre}" Name="CountryList"
+AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="420">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CountryCode" Width="120" Binding="{Binding Path=CountryCode}"/>
+                    <DataGridTextColumn Header="CountryName" Width="*" Binding="{Binding Path=CountryName}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
