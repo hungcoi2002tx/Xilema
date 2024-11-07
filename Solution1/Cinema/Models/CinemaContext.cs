@@ -28,7 +28,7 @@ public partial class CinemaContext : DbContext
     public virtual DbSet<Show> Shows { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("server =fpt-alumnidbserver.database.windows.net; database = Cinema;uid=hungnm;pwd=Hung532@;");
+        => optionsBuilder.UseSqlServer("server =; database = Cinema;uid=hungnm;pwd=Hung532@;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
