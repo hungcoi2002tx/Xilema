@@ -12,5 +12,9 @@ namespace Share.Helper
         {
             return Guid.NewGuid().ToString();
         }
+        public static bool IsNotNullOrEmpty(this string str)
+        {
+            return str != null && str.Length > 0;
+        }
     }
 }

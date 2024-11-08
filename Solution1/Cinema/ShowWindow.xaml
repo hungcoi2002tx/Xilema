@@ -1,0 +1,74 @@
+﻿<Window x:Class="Cinema.ShowWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema"
+        mc:Ignorable="d"
+            Title="Quản lý Lịch Chiếu" Height="450" Width="800">
+    <DockPanel>
+        <!-- Phần lọc nằm ở trên cùng -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+            <ComboBox x:Name="RoomComboBox"
+                    Width="150" Margin="5" 
+                    DisplayMemberPath="Name" 
+                    SelectedValuePath="RoomId" 
+                    ItemsSource="{Binding RoomFilters}" 
+                    SelectionChanged="ComboBox_SelectionChanged"/>
+            <ComboBox x:Name="FilmComboBox"
+                        Width="150" Margin="5" 
+                        DisplayMemberPath="Title" 
+                        SelectedValuePath="FilmId" 
+                        ItemsSource="{Binding FilmFilters}" 
+                        SelectionChanged="ComboBox_SelectionChanged"/>
+            <ComboBox x:Name="ShowStatusComboBox"
+                          Width="150" Margin="5" 
+                          ItemsSource="{Binding ShowStatuses}" 
+                          SelectionChanged="ComboBox_SelectionChanged"/>  
+            <Button x:Name="ClearFilter" Content="Xóa lọc" Width="50" Margin="10" Click="ClearFilter_Click"/>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <!-- Chiếm 2 phần -->
+                <ColumnDefinition Width="1*"/>
+                <!-- Chiếm 1 phần -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Phần DataGrid bên trái để hiển thị danh sách các lịch chiếu -->
+            <DataGrid x:Name="ShowsDataGrid" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" 
+                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" />
+
+            <!-- Phần thông tin lịch chiếu bên phải -->
+            <GroupBox Header="Thông tin Lịch Chiếu" Grid.Column="1" VerticalAlignment="Top" 
+                  HorizontalAlignment="Stretch" Margin="10">
+                <StackPanel>
+                    <!-- ComboBox cho RoomID -->
+                    <TextBlock Text="RoomID:" Margin="5"/>
+                    <ComboBox x:Name="RoomIDComboBox" Margin="5">
+                    </ComboBox>
+                    <!-- ComboBox cho FilmID -->
+                    <TextBlock Text="FilmID:" Margin="5"/>
+                    <ComboBox x:Name="FilmIDComboBox" Margin="5">
+                    </ComboBox>
+
+                    <!-- TextBox cho Price chỉ nhận số -->
+                    <TextBlock Text="Price:" Margin="5"/>
+                    <TextBox x:Name="PriceTextBox" Margin="5" PreviewTextInput="PriceTextBox_PreviewTextInput" />
+
+                    <!-- ComboBox cho Status -->
+                    <TextBlock Text="Status:" Margin="5"/>
+                    <ComboBox x:Name="StatusComboBoxForAdd" Margin="5">
+                        <ComboBoxItem Content="Còn vé"/>
+                        <ComboBoxItem Content="Đã bán hết"/>
+                    </ComboBox>
+
+                    <!-- Nút Save -->
+                    <Button x:Name="AddOrUpdateButton" Content="Save" Width="150" Margin="10" 
+                        HorizontalAlignment="Center" Click="AddOrUpdateButton_Click"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+</Window>
