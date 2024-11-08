@@ -11,5 +11,7 @@ public partial class Booking
 
     public string? SeatNumber { get; set; }
 
+    public string? UserId { get; set; }
+
     public virtual Show? Show { get; set; }
 }

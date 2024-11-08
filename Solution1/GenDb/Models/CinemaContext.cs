@@ -48,6 +48,10 @@ public partial class CinemaContext : DbContext
                 .HasMaxLength(32)
                 .IsUnicode(false)
                 .HasColumnName("ShowID");
+            entity.Property(e => e.UserId)
+                .HasMaxLength(32)
+                .IsUnicode(false)
+                .HasColumnName("UserID");
 
             entity.HasOne(d => d.Show).WithMany(p => p.Bookings)
                 .HasForeignKey(d => d.ShowId)
@@ -132,6 +136,9 @@ public partial class CinemaContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("RoomID");
             entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Time)
+                .HasMaxLength(32)
+                .IsUnicode(false);
 
             entity.HasOne(d => d.Film).WithMany(p => p.Shows)
                 .HasForeignKey(d => d.FilmId)

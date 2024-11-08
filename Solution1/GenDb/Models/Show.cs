@@ -15,6 +15,8 @@ public partial class Show
 
     public string? Status { get; set; }
 
+    public string? Time { get; set; }
+
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual Film? Film { get; set; }
