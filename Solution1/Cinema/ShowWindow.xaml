@@ -23,8 +23,8 @@
                         SelectionChanged="ComboBox_SelectionChanged"/>
             <ComboBox x:Name="ShowStatusComboBox"
                           Width="150" Margin="5" 
-                          ItemsSource="{Binding ShowStatuses}" 
-                          SelectionChanged="ComboBox_SelectionChanged"/>
+                          ItemsSource="{Binding ShowStatusFilters}" 
+                          SelectionChanged="ComboBox_SelectionChanged"/>  
             <Button x:Name="ClearFilter" Content="Xóa lọc" Width="50" Margin="10" Click="ClearFilter_Click"/>
         </StackPanel>
 
@@ -37,36 +37,90 @@
             </Grid.ColumnDefinitions>
 
             <!-- Phần DataGrid bên trái để hiển thị danh sách các lịch chiếu -->
-            <DataGrid x:Name="ShowsDataGrid" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" 
-                  AutoGenerateColumns="True" CanUserAddRows="False" CanUserDeleteRows="False" />
+            <DataGrid x:Name="ShowsDataGrid" 
+          Grid.Column="0" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch" 
+          Margin="10"   
+          AutoGenerateColumns="False" 
+          CanUserResizeColumns="False"
+          CanUserAddRows="False" 
+          CanUserDeleteRows="False" 
+          IsReadOnly="True"
+          SelectionChanged="ShowsDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <!-- Các cột khác -->
+                    <DataGridTextColumn Header="Show ID" Binding="{Binding ShowId}" />
+                    <DataGridTextColumn Header="Room" Binding="{Binding RoomName}" />
+                    <DataGridTextColumn Header="Film" Binding="{Binding FilmTitle}" />
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                    <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
+
+                    <!-- Cột Action chứa nút xóa -->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit Status" Click="EditStatus_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Click="DeleteButton_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
 
             <!-- Phần thông tin lịch chiếu bên phải -->
             <GroupBox Header="Thông tin Lịch Chiếu" Grid.Column="1" VerticalAlignment="Top" 
                   HorizontalAlignment="Stretch" Margin="10">
                 <StackPanel>
                     <!-- ComboBox cho RoomID -->
-                    <TextBlock Text="RoomID:" Margin="5"/>
-                    <ComboBox x:Name="RoomIDComboBox" Margin="5">
+                    <TextBlock Text="Room:" Margin="5"/>
+                    <ComboBox x:Name="RoomIDComboBoxForAdd" Margin="5"
+                                DisplayMemberPath="Name" 
+                                SelectedValuePath="RoomId" 
+                                ItemsSource="{Binding RoomModels}" >   
                     </ComboBox>
                     <!-- ComboBox cho FilmID -->
-                    <TextBlock Text="FilmID:" Margin="5"/>
-                    <ComboBox x:Name="FilmIDComboBox" Margin="5">
+                    <TextBlock Text="Film:" Margin="5"/>
+                    <ComboBox x:Name="FilmIDComboBoxForAdd" Margin="5"
+                              DisplayMemberPath="Title" 
+                                SelectedValuePath="FilmId" 
+                                ItemsSource="{Binding FilmModels}">     
                     </ComboBox>
 
                     <!-- TextBox cho Price chỉ nhận số -->
                     <TextBlock Text="Price:" Margin="5"/>
-                    <TextBox x:Name="PriceTextBox" Margin="5" PreviewTextInput="PriceTextBox_PreviewTextInput" />
+                    <TextBox x:Name="PriceTextBoxForAdd" Margin="5" PreviewTextInput="PriceTextBox_PreviewTextInput" />
 
                     <!-- ComboBox cho Status -->
                     <TextBlock Text="Status:" Margin="5"/>
-                    <ComboBox x:Name="StatusComboBoxForAdd" Margin="5">
-                        <ComboBoxItem Content="Còn vé"/>
-                        <ComboBoxItem Content="Đã bán hết"/>
-                    </ComboBox>
+                    <ComboBox x:Name="ShowStatusForAdd"
+                              Margin="5" 
+                              ItemsSource="{Binding ShowStatusModels}" 
+                              />
 
+                    <!-- ComboBox cho Time -->
+                    <TextBlock Text="Time:" Margin="5"/>
+                    <ComboBox x:Name="TimeComboBoxForAdd"
+                              ItemsSource="{Binding TimeModels}" 
+                              Margin="5"/>
                     <!-- Nút Save -->
-                    <Button x:Name="AddOrUpdateButton" Content="Save" Width="150" Margin="10" 
-                        HorizontalAlignment="Center" Click="AddOrUpdateButton_Click"/>
+                    <!-- Nút Add -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <!-- Nút Add -->
+                        <Button x:Name="AddButton" Content="Add" Width="75" Margin="5" 
+                    Click="AddButton_Click"/>
+
+                        <!-- Nút Update -->
+                        <Button x:Name="UpdateButton" Content="Update" Width="75" Margin="5" 
+                    Click="UpdateButton_Click"/>
+                    </StackPanel>
                 </StackPanel>
             </GroupBox>
             <Button x:Name="btnBack" Canvas.Left="407" Canvas.Top="342" Width="80" Height="20" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnBack_Click" Grid.Column="1" Margin="177,344,0,0"></Button>
