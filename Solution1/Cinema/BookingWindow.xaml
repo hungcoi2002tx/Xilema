@@ -1,0 +1,36 @@
+﻿<Window x:Class="Cinema.BookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema"
+        mc:Ignorable="d"
+        Title="BookingWindow" Height="250" Width="400">
+    <Grid>
+        <Canvas Background="#f0f4f8">
+            <Label Content="Booking Information" FontSize="20" FontWeight="Bold" Canvas.Left="20"></Label>
+            <Label Content="Film:" Canvas.Left="20" Canvas.Top="30"></Label>
+            <ComboBox x:Name="cboFilm" Canvas.Left="104" Width="150" Canvas.Top="37" 
+ItemsSource="{Binding Film}" DisplayMemberPath="Title"
+         SelectedValue="{Binding SelectedFilm}"></ComboBox>
+            <Label Content="Time:" Margin="20,60,0,0"></Label>
+            <!--Margin: Trái-Trên-Phải-Dưới -->
+            <ComboBox x:Name="cboTime" 
+          Canvas.Left="104" 
+          Width="150" 
+          Canvas.Top="64" 
+          ItemsSource="{Binding TimeList}" 
+          SelectedValue="{Binding SelectedTime}" 
+          SelectionChanged="cboTime_SelectionChanged" />
+            <Label Content="Room:" Margin="20,90,0,0"></Label>
+            <ComboBox x:Name="cboRoom" Canvas.Left="104" Width="150" Canvas.Top="100" 
+     ItemsSource="{Binding RoomList}" DisplayMemberPath="Name"
+              SelectedValue="{Binding SelectedRoom}" SelectionChanged="cboRoom_SelectionChanged"></ComboBox>
+            <Label Content="SeatNumber:" Margin="20,120,0,0"></Label>
+            <ComboBox x:Name="cboSeatNumber" Canvas.Left="104" Width="150" Canvas.Top="130" 
+ItemsSource="{Binding SeatList}"
+          SelectedValue="{Binding SelectedSeat}"></ComboBox>
+            <Button Background="#4CAF50" Foreground="White" x:Name="btnSave" Canvas.Left="104" Canvas.Top="173" Width="80" Height="20" Content="Save" Click="btnSave_Click"></Button>
+        </Canvas>
+    </Grid>
+</Window>

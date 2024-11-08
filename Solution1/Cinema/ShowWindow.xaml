@@ -123,6 +123,7 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
+            <Button x:Name="btnBack" Canvas.Left="407" Canvas.Top="342" Width="80" Height="20" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnBack_Click" Grid.Column="1" Margin="177,344,0,0"></Button>
         </Grid>
     </DockPanel>
 </Window>
