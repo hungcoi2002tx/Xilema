@@ -114,13 +114,21 @@ namespace Cinema
                 Film p = null;
                 using (var _context = new CinemaContext())
                 {
-                    p = _context.Films.FirstOrDefault(p => p.FilmId == txtFilmId.Text);
-                    if (p != null)
+                    var s = _context.Shows.FirstOrDefault(c => c.FilmId == txtFilmId.Text);
+                    if (s != null)
                     {
-                        _context.Films.Remove(p);
-                        _context.SaveChanges();
-                        LoadData();
-                        MessageBox.Show($"Delete film successful", "Delete Film");
+                        MessageBox.Show($"Film is existed a film schedule.", "Delete Room");
+                    }
+                    else
+                    {
+                        p = _context.Films.FirstOrDefault(p => p.FilmId == txtFilmId.Text);
+                        if (p != null)
+                        {
+                            _context.Films.Remove(p);
+                            _context.SaveChanges();
+                            LoadData();
+                            MessageBox.Show($"Delete film successful", "Delete Film");
+                        }
                     }
                 }
             }

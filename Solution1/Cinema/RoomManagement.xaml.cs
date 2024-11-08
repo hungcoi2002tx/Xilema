@@ -110,13 +110,21 @@ namespace Cinema
                 Room p = null;
                 using (var _context = new CinemaContext())
                 {
-                    p = _context.Rooms.FirstOrDefault(p => p.RoomId == txtRoomId.Text);
-                    if (p != null)
+                    var s = _context.Shows.FirstOrDefault(c => c.RoomId == txtRoomId.Text);
+                    if (s != null)
                     {
-                        _context.Rooms.Remove(p);
-                        _context.SaveChanges();
-                        LoadData();
-                        MessageBox.Show($"Delete room successful", "Delete Room");
+                        MessageBox.Show($"Room is existed a film schedule.", "Delete Room");
+                    }
+                    else
+                    {
+                        p = _context.Rooms.FirstOrDefault(p => p.RoomId == txtRoomId.Text);
+                        if (p != null)
+                        {
+                            _context.Rooms.Remove(p);
+                            _context.SaveChanges();
+                            LoadData();
+                            MessageBox.Show($"Delete room successful", "Delete Room");
+                        }
                     }
                 }
             }

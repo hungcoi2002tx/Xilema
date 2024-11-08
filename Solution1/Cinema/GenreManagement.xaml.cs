@@ -132,13 +132,21 @@ namespace Cinema
                 Genre p = null;
                 using (var _context = new CinemaContext())
                 {
-                    p = _context.Genres.FirstOrDefault(p => p.GenreId == txtGenreId.Text);
-                    if (p != null)
+                    var s = _context.Films.FirstOrDefault(c => c.GenreId == txtGenreId.Text);
+                    if (s != null)
                     {
-                        _context.Genres.Remove(p);
-                        _context.SaveChanges();
-                        LoadGenreData();
-                        MessageBox.Show($"Delete genre successful", "Delete Genre");
+                        MessageBox.Show($"Genre is existed a film infor.", "Delete Genre");
+                    }
+                    else
+                    {
+                        p = _context.Genres.FirstOrDefault(p => p.GenreId == txtGenreId.Text);
+                        if (p != null)
+                        {
+                            _context.Genres.Remove(p);
+                            _context.SaveChanges();
+                            LoadGenreData();
+                            MessageBox.Show($"Delete genre successful", "Delete Genre");
+                        }
                     }
                 }
             }
@@ -232,13 +240,21 @@ namespace Cinema
                 {
                     using (var _context = new CinemaContext())
                     {
-                        p = _context.Countries.FirstOrDefault(p => p.CountryCode == txtCountryCode.Text);
-                        if (p != null)
+                        var s = _context.Films.FirstOrDefault(c => c.CountryCode == txtCountryCode.Text);
+                        if (s != null)
                         {
-                            _context.Countries.Remove(p);
-                            _context.SaveChanges();
-                            LoadCountryData();
-                            MessageBox.Show($"Delete country successful", "Delete Country");
+                            MessageBox.Show($"Country is existed a film infor.", "Delete Country");
+                        }
+                        else
+                        {
+                            p = _context.Countries.FirstOrDefault(p => p.CountryCode == txtCountryCode.Text);
+                            if (p != null)
+                            {
+                                _context.Countries.Remove(p);
+                                _context.SaveChanges();
+                                LoadCountryData();
+                                MessageBox.Show($"Delete country successful", "Delete Country");
+                            }
                         }
                     }
                 }
