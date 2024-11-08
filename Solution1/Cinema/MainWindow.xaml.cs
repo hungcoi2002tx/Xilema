@@ -97,15 +97,17 @@ namespace Cinema
         private void ScheduleMoviesButton_Click(object sender, RoutedEventArgs e)
         {
             // Mở cửa sổ Lên lịch chiếu
-            //var scheduleMoviesWindow = new ScheduleMoviesWindow();
-            //scheduleMoviesWindow.Show();
+            var scheduleMoviesWindow = new ShowWindow();
+            scheduleMoviesWindow.Show();
+            this.Hide();
         }
 
         private void ManageBookingButton_Click(object sender, RoutedEventArgs e)
         {
             // Mở cửa sổ Quản lý đặt vé
-            //var manageBookingWindow = new ManageBookingWindow();
-            //manageBookingWindow.Show();
+            var manageBookingWindow = new BookingWindow();
+            manageBookingWindow.Show();
+            this.Hide();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

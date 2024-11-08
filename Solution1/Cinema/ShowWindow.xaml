@@ -24,7 +24,7 @@
             <ComboBox x:Name="ShowStatusComboBox"
                           Width="150" Margin="5" 
                           ItemsSource="{Binding ShowStatuses}" 
-                          SelectionChanged="ComboBox_SelectionChanged"/>  
+                          SelectionChanged="ComboBox_SelectionChanged"/>
             <Button x:Name="ClearFilter" Content="Xóa lọc" Width="50" Margin="10" Click="ClearFilter_Click"/>
         </StackPanel>
 
@@ -69,6 +69,7 @@
                         HorizontalAlignment="Center" Click="AddOrUpdateButton_Click"/>
                 </StackPanel>
             </GroupBox>
+            <Button x:Name="btnBack" Canvas.Left="407" Canvas.Top="342" Width="80" Height="20" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnBack_Click" Grid.Column="1" Margin="177,344,0,0"></Button>
         </Grid>
     </DockPanel>
 </Window>
