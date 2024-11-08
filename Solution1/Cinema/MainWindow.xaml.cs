@@ -75,6 +75,7 @@ namespace Cinema
             // Mở cửa sổ Quản lý phòng chiếu
             var manageRoomWindow = new RoomManagement();
             manageRoomWindow.Show();
+            this.Hide();
         }
 
         private void ManageMoviesButton_Click(object sender, RoutedEventArgs e)
@@ -82,6 +83,7 @@ namespace Cinema
             // Mở cửa sổ Quản lý phim
             var manageMoviesWindow = new FilmManagement();
             manageMoviesWindow.Show();
+            this.Hide();
         }
 
         private void ManageGenreCountryButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +91,7 @@ namespace Cinema
             // Mở cửa sổ Quản lý thể loại và quốc gia
             var manageGenreCountryWindow = new GenreManagement();
             manageGenreCountryWindow.Show();
+            this.Hide();
         }
 
         private void ScheduleMoviesButton_Click(object sender, RoutedEventArgs e)

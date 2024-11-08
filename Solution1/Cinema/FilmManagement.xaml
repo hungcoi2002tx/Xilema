@@ -8,8 +8,8 @@
         Title="FilmManagement" Height="450" Width="800">
     <Grid>
         <Canvas Background="#f0f4f8">
-            <Label Content="FilmId:" Canvas.Left="20"></Label>
-            <TextBox x:Name="txtFilmId" Canvas.Left="80" Width="150" Canvas.Top="6" IsEnabled="False"
+            <Label Content="Film Information" FontSize="20" FontWeight="Bold" Canvas.Left="20"></Label>
+            <TextBox x:Name="txtFilmId" Canvas.Left="80" Width="150" Canvas.Top="6" Visibility="Collapsed"
              Text="{Binding FilmId}" DataContext="{Binding SelectedItem, ElementName=FilmList}"></TextBox>
             <Label Content="Title:" Canvas.Left="20" Canvas.Top="30"></Label>
             <TextBox x:Name="txtTitle" Canvas.Left="80" Width="150" Canvas.Top="36" 
@@ -32,13 +32,14 @@
             <DataGrid Width="725" Canvas.Top="199" Height="155" DataContext="{Binding Source=Film}" Name="FilmList"
               AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="37">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="FilmId" Width="120" Binding="{Binding Path=FilmId}"/>
+                    <DataGridTextColumn Header="FilmId" Width="120" Binding="{Binding Path=FilmId}" Visibility="Collapsed"/>
                     <DataGridTextColumn Header="Title" Width="120" Binding="{Binding Path=Title}"/>
                     <DataGridTextColumn Header="Year" Width="150" Binding="{Binding Path=Year}"/>
                     <DataGridTextColumn Header="Genre" Width="*" Binding="{Binding Path=GenreName}"/>
                     <DataGridTextColumn Header="Country" Width="*" Binding="{Binding Path=CountryName}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Button x:Name="btnBack" Canvas.Left="682" Canvas.Top="370" Width="80" Height="20" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnBack_Click"></Button>
         </Canvas>
     </Grid>
 </Window>

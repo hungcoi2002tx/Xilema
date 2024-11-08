@@ -137,5 +137,12 @@ namespace Cinema
                 throw;
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
     }
 }

@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cinema"
         mc:Ignorable="d"
-        Title="RoomManagement" Height="450" Width="800">
-    <Grid>
-        <Canvas Background="#f0f4f8">
-            <Label Content="RoomId:" Canvas.Left="20"></Label>
-            <TextBox x:Name="txtRoomId" Canvas.Left="109" Width="150" Canvas.Top="8" IsEnabled="False"
+        Title="RoomManagement" Height="444" Width="577">
+    <Grid Margin="0,0,286,0">
+        <Canvas Background="#f0f4f8" Margin="0,0,-286,0">
+            <Label Content="Room Information" FontSize="20" FontWeight="Bold" Canvas.Left="20"></Label>
+            <TextBox x:Name="txtRoomId" Canvas.Left="109" Width="150" Canvas.Top="8" Visibility="Collapsed"
      Text="{Binding RoomId, Mode=OneWay}" DataContext="{Binding SelectedItem, ElementName=RoomList}"></TextBox>
             <Label Content="Name:" Canvas.Left="20" Canvas.Top="30"></Label>
             <TextBox x:Name="txtName" Canvas.Left="109" Width="150" Canvas.Top="38" 
@@ -28,12 +28,13 @@
             <DataGrid Width="477" Canvas.Top="170" Height="155" DataContext="{Binding Source=Infor}" Name="RoomList"
       AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="RoomId" Width="120" Binding="{Binding Path=RoomId}"/>
+                    <DataGridTextColumn Header="RoomId" Width="120" Binding="{Binding Path=RoomId}" Visibility="Collapsed"/>
                     <DataGridTextColumn Header="Name" Width="120" Binding="{Binding Path=Name}"/>
                     <DataGridTextColumn Header="NumberRows" Width="120" Binding="{Binding Path=NumberRows}"/>
-                    <DataGridTextColumn Header="NumberCols" Width="150" Binding="{Binding Path=NumberCols}"/>
+                    <DataGridTextColumn Header="NumberCols" Width="*" Binding="{Binding Path=NumberCols}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Button x:Name="btnBack" Canvas.Left="407" Canvas.Top="342" Width="80" Height="20" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnBack_Click"></Button>
         </Canvas>
     </Grid>
 </Window>
