@@ -10,7 +10,7 @@ namespace Share.Helper
     {
         public static string GetIdByGuid()
         {
-            return Guid.NewGuid().ToString();
+            return Guid.NewGuid().ToString("N");
         }
         public static bool IsNotNullOrEmpty(this string str)
         {

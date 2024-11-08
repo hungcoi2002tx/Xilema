@@ -11,11 +11,14 @@ namespace Share.DTO
         public string ShowId { get; set; } = null!;
 
         public string? RoomId { get; set; }
+        public string? RoomName { get; set; }
 
         public string? FilmId { get; set; }
+        public string? FilmTitle { get; set; }
 
         public decimal? Price { get; set; }
 
         public string? Status { get; set; }
+        public string? Time { get; set; }
     }
 }
