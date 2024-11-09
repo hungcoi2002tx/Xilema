@@ -22,6 +22,10 @@ namespace Cinema.Helper
             CreateMap<RoomDTO, Room>();
             CreateMap<Film, FilmDTO>();
             CreateMap<FilmDTO, Film>();
+            CreateMap<BookingDTO, Booking>();
+            CreateMap<Booking, BookingDTO>();
+            CreateMap<User, UserDTO>();
+            CreateMap<UserDTO, User>();
         }   
     }
 }

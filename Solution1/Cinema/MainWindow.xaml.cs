@@ -45,6 +45,7 @@ namespace Cinema
                 btnFilm.Visibility = Visibility.Hidden;
                 btnRoom.Visibility = Visibility.Hidden;
                 btnSchedule.Visibility = Visibility.Hidden;
+                btnTicketMn.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {
@@ -62,6 +63,7 @@ namespace Cinema
                 btnFilm.Visibility = Visibility.Visible;
                 btnRoom.Visibility = Visibility.Visible;
                 btnSchedule.Visibility = Visibility.Visible;
+                btnTicketMn.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
             {
@@ -106,6 +108,14 @@ namespace Cinema
         {
             // Mở cửa sổ Quản lý đặt vé
             var manageBookingWindow = new BookingWindow();
+            manageBookingWindow.Show();
+            this.Hide();
+        }
+
+        private void ManageBookingMnButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Mở cửa sổ Quản lý đặt vé
+            var manageBookingWindow = new BookingManagement();
             manageBookingWindow.Show();
             this.Hide();
         }

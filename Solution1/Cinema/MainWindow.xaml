@@ -81,7 +81,7 @@
                 </Button.Style>
             </Button>
 
-            <Button Content="Quản lý đặt vé" x:Name="btnTicket"
+            <Button Content="Đặt vé" x:Name="btnTicket"
                     Background="#F44336" Foreground="White" FontSize="16" FontWeight="Bold" 
                     Margin="10" Padding="10"
                     Click="ManageBookingButton_Click">
@@ -97,6 +97,21 @@
                 </Button.Style>
             </Button>
 
+            <Button Content="Quản lý vé" x:Name="btnTicketMn"
+        Background="#F44336" Foreground="White" FontSize="16" FontWeight="Bold" 
+        Margin="10" Padding="10"
+        Click="ManageBookingMnButton_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Effect">
+                            <Setter.Value>
+                                <DropShadowEffect Color="Black" BlurRadius="5"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
         </WrapPanel>
         <Button Content="Đăng xuất" Width="100" Height="30"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"
